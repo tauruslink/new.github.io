@@ -1,19 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        a:hover{
-            color: brown;
-        }
-    </style>
+<meta charset="UTF-8">
+    <title>Honey A</title>
+<style>
+.div_bor{
+border:1px solid #274b8b ;
+padding: 5px 5px 10px 5px;
+}
+</style>
 </head>
 <body>
-    <a href="#" target="_blank">modify</a>    <!-- 在新的页面中打开 -->
-    <a href="#" target="_self">new</a>     <!-- 在本页打开 -->
-    <img src="eg_tulip.png"  alt="hub" />
+<div>
+<p>Honey中午吃的是什么？</p>
+<p><input type="radio" value="A" name="o"> A.面</p>
+<p><input type="radio" value="B" name="o"> B.虾</p>
+<p><input type="radio" value="C" name="o"> C.鱼</p>
+<p><button style="float: left" onclick="fn()">提交</button></p>
+</div>
+<script>
+var rule = ['C'];//答案
+var boxs = document.getElementsByTagName('input');
+var check = [];
+var score = 0;
+function fn(){
+check=[];
+score = 0;
+for(var i=0;i<boxs.length;i++){
+if(boxs[i].checked){
+check.push(boxs[i].value);
+}
+}
+for(var j=0;j<check.length;j++){
+if(rule.indexOf(check[j]) !=-1){
+score++;
+}else{
+score--;
+}
+}
+//alert('啊哦，再试一次哦！');
+console.log(boxs[2].checked);
+if(boxs[2].checked!=1){
+alert('啊哦，再试一次哦！');
+}else{
+alert(Math.ceil(100/rule.length*score)+'分，Honey你真棒！');} // 分数规则,自己定吧
+
+}
+</script>
 </body>
 </html>
